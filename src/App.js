@@ -1,24 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import WelcomeProp from "./WelcomeProp";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // 화면을 그려 주는 구간
+    <>
+      <WelcomeProp name="곰돌이" gender="남성" age={23} addr="천안시" />
+      <WelcomeProp name="장원영" gender="여성" age={23} addr="천안시" />
+      <WelcomeProp name="안유진" gender="여성" age={23} addr="천안시" />
+      <WelcomeProp />
+    </>
   );
 }
 
