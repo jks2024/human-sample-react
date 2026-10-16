@@ -14,6 +14,7 @@ const Say = () => {
         type="text"
         placeholder="이름 입력"
         onChange={(e) => setName(e.target.value)}
+        value={name}
       />
       <br />
       <button onClick={() => setMessage(`안녕하세요 ${name}님`)}>입장</button>
