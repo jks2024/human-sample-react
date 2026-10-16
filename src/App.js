@@ -7,9 +7,10 @@ import InputEvent from "./InputEvent";
 import DropDown from "./DropDown";
 import RadioBtn from "./RadioBtn";
 import CheckBox from "./CheckBtn";
+import Table from "./Table";
 
 function App() {
-  return <CheckBox />;
+  return <Table />;
 }
 
 export default App;
