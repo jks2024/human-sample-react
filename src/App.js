@@ -9,9 +9,11 @@ import RadioBtn from "./RadioBtn";
 import CheckBox from "./CheckBtn";
 import Table from "./Table";
 import ToDoSample from "./ToDoSample";
+import Count from "./Count";
+import Infomation from "./Infomation";
 
 function App() {
-  return <ToDoSample />;
+  return <Infomation />;
 }
 
 export default App;
