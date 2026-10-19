@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import "./App.css";
 
 const sample = [
   { id: 1, text: "HTML 연습" },
@@ -8,9 +9,17 @@ const sample = [
 ];
 
 const ToDoSample = () => {
-  const [todoData, setTodoData] = useState(sample); // 상태관리 (렌더링 조건을 만들기 위해서 사용)
+  const [todoData, setTodoData] = useState(() => {
+    const storedTodos = localStorage.getItem("todos");
+    return storedTodos ? JSON.parse(storedTodos) : sample;
+  });
+
   const [inputText, setInputText] = useState(""); // 입력에 대한 상태 관리
   const [nextId, setNextId] = useState(5); // id 증가에 대한 상태 관리
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todoData));
+  }, [todoData]);
 
   const onClick = () => {
     const nextTodos = [...todoData, { id: nextId, text: inputText }];
@@ -19,16 +28,31 @@ const ToDoSample = () => {
     setInputText(""); // input 창을 지워 줌
   };
 
+  const onRemove = (id) => {
+    const nextTodos = todoData.filter((todo) => todo.id !== id);
+    setTodoData(nextTodos);
+  };
+
+  const onKeyDown = (e) => {
+    if (e.key === "Enter") onClick();
+  };
+
   return (
     <>
       <input
         type="text"
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
+        onKeyDown={onKeyDown}
       />
       <button onClick={onClick}>추가</button>
       <ul>
-        {todoData && todoData.map((todo) => <li key={todo.id}>{todo.text}</li>)}
+        {todoData &&
+          todoData.map((todo) => (
+            <li key={todo.id} onDoubleClick={() => onRemove(todo.id)}>
+              {todo.text}
+            </li>
+          ))}
       </ul>
     </>
   );
