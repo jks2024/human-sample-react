@@ -8,6 +8,11 @@ const Infomation = () => {
   const [nickname, setNickname] = useState("");
   const [addr, setAddr] = useState("");
 
+  useEffect(() => {
+    console.log("렌더링 완료 이후 호출!!!!");
+    console.log({ name, nickname, addr });
+  }, [name]);
+
   return (
     <>
       <label>

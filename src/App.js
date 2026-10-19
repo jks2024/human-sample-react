@@ -11,9 +11,10 @@ import Table from "./Table";
 import ToDoSample from "./ToDoSample";
 import Count from "./Count";
 import Infomation from "./Infomation";
+import Average from "./Average";
 
 function App() {
-  return <Infomation />;
+  return <Average />;
 }
 
 export default App;
