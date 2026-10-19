@@ -8,9 +8,10 @@ import DropDown from "./DropDown";
 import RadioBtn from "./RadioBtn";
 import CheckBox from "./CheckBtn";
 import Table from "./Table";
+import ToDoSample from "./ToDoSample";
 
 function App() {
-  return <Table />;
+  return <ToDoSample />;
 }
 
 export default App;
