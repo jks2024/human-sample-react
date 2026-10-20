@@ -12,9 +12,10 @@ import ToDoSample from "./ToDoSample";
 import Count from "./Count";
 import Infomation from "./Infomation";
 import Average from "./Average";
+import Styled from "./Styled";
 
 function App() {
-  return <Average />;
+  return <Styled />;
 }
 
 export default App;
